@@ -1,0 +1,17 @@
+# Build
+bin/
+obj/
+
+# User-specific
+.vs/
+*.user
+*.suo
+
+# Config sensible
+appsettings.json
+
+# Otros
+*.exe
+*.dll
+*.pdb
+*.log
