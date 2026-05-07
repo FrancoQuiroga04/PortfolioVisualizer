@@ -9,17 +9,20 @@ class Program
 {
     static async Task Main()
     {
+        var envPath = Path.Combine(AppContext.BaseDirectory, ".env");
+        if (File.Exists(envPath))
+            DotNetEnv.Env.Load(envPath);
+
         var config = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+            .AddEnvironmentVariables()
             .Build();
 
-        var username = config["IOL:Username"] ?? Environment.GetEnvironmentVariable("IOL__Username");
-        var password = config["IOL:Password"] ?? Environment.GetEnvironmentVariable("IOL__Password");
+        var username = config["IOL:Username"];
+        var password = config["IOL:Password"];
 
         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
         {
-            Console.WriteLine("Faltan credenciales. Completá appsettings.json o setea IOL__Username / IOL__Password.");
+            Console.WriteLine("Faltan credenciales. Completá el archivo .env con IOL__Username e IOL__Password (ver .env.example).");
             return;
         }
 

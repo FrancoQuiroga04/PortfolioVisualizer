@@ -6,12 +6,26 @@ obj/
 .vs/
 *.user
 *.suo
+*.rsuser
 
-# Config sensible
-appsettings.json
+# Credenciales y configuración local
+.env
+.env.local
+appsettings.*.json
 
-# Otros
+# Archivos generados
 *.exe
 *.dll
 *.pdb
 *.log
+*.nupkg
+portafolio_raw.json
+Output/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code
+CLAUDE.md
