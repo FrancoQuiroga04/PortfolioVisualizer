@@ -50,7 +50,7 @@ class Program
                 return;
             }
 
-            var xlsxPath = Path.Combine(AppContext.BaseDirectory, "portafolio_iol.xlsx");
+            var xlsxPath = Path.Combine(AppContext.BaseDirectory, "Output", "portafolio_iol.xlsx");
             ExcelExporter.Save(xlsxPath, lista);
             Console.WriteLine($"XLSX exportado: {xlsxPath}");
         }
